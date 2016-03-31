@@ -1,0 +1,29 @@
+{
+  "name": "intro-to-react-jspm",
+  "private": true,
+  "scripts": {
+    "postinstall": "jspm install",
+    "start": "node server",
+    "bundle": "jspm bundle app/main build/bundle.js --minify --inject",
+    "unbundle": "jspm unbundle && rimraf build",
+    "sfx-bundle": "jspm sfx-bundle app/main build/app.js --minify"
+  },
+  "devDependencies": {
+    "chokidar-socket-emitter": "^0.5.0",
+    "http-server": "^0.9.0",
+    "jspm": "^0.16.31",
+    "rimraf": "^2.5.2"
+  },
+  "jspm": {
+    "dependencies": {
+      "react": "npm:react@^0.14.7",
+      "react-dom": "npm:react-dom@^0.14.7"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4",
+      "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@^0.5.6"
+    }
+  }
+}

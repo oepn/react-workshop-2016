@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Intro to React - JSPM</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="jspm_packages/system.js"></script>
+<script src="config.js"></script>
+<script>
+    var hotLoaderReady;
+    var isNotBundled = typeof System.bundles === 'undefined' || Object.keys(System.bundles).length === 0;
+
+    if (isNotBundled) {
+        System.trace = true;
+        hotLoaderReady = System.import('systemjs-hot-reloader')
+            .then(function(HotReloader) {
+                new HotReloader.default(window.location.origin);
+            });
+    }
+
+    Promise.resolve(hotLoaderReady).then(function() {
+        System.import('app/main.js')
+            .then(function() {
+                console.log('App started at', new Date());
+            });
+    });
+</script>
+</body>
+</html>

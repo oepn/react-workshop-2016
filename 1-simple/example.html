@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React Test - CDN</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
+<script>
+    function ListHeader(props) {
+        return React.DOM.h1(null,
+            'List ',
+            React.DOM.small(null,
+                props.count, ' items'
+            )
+        );
+    }
+
+    function List(props) {
+        return React.DOM.ul(null,
+            props.items.map(function(item, i) {
+                return React.DOM.li({key: i}, item);
+            })
+        );
+    }
+
+    var WordList = React.createClass({
+        displayName: 'WordList',
+
+        getInitialState() {
+            return {
+                words: this.props.initialWords
+            };
+        },
+
+        addNewWord() {
+            this.setState({
+                words: [].concat(this.state.words, 'new word')
+            });
+        },
+
+        render: function() {
+            return React.DOM.div({className: 'container'},
+                ListHeader({count: this.state.words.length}),
+                React.DOM.button({className: 'btn btn-default', onClick: this.addNewWord},
+                    'Add a new word'
+                ),
+                React.DOM.hr(),
+                List({items: this.state.words})
+            );
+        }
+    });
+
+    // - - - - - - - - - - - - - - - -
+
+    ReactDOM.render(
+        React.createElement(WordList, {initialWords: ['foo', 'bar', 'baz', 'qux']}),
+        document.getElementById('root')
+    );
+</script>
+</body>
+</html>
