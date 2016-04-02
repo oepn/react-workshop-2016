@@ -3,11 +3,10 @@
   "private": true,
   "scripts": {
     "postinstall": "npm run build",
-    "start": "npm run watch & npm run browser-sync",
+    "start": "node server",
     "test": "mocha --compilers js:babel-register",
     "build": "rimraf build && webpack --config webpack.config.production.js",
-    "watch": "rimraf build && webpack --watch",
-    "browser-sync": "browser-sync start --server --files \"index.html, build/**/*.js\" --no-notify --no-open"
+    "watch": "rimraf build && webpack --watch"
   },
   "dependencies": {
     "babel-polyfill": "^6.7.4",
