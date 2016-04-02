@@ -13,4 +13,4 @@ browserSync({
 });
 
 // Start webpack watch
-spawn('npm', ['run', 'watch'], {stdio: 'inherit'});
+spawn('webpack', ['--watch'], {stdio: 'inherit'});

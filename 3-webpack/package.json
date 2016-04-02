@@ -5,8 +5,7 @@
     "postinstall": "npm run build",
     "start": "node server",
     "test": "mocha --compilers js:babel-register",
-    "build": "rimraf build && webpack --config webpack.config.production.js",
-    "watch": "rimraf build && webpack --watch"
+    "build": "rimraf build && webpack --config webpack.config.production.js"
   },
   "dependencies": {
     "babel-polyfill": "^6.7.4",
