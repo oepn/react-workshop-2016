@@ -11,7 +11,8 @@ export default class WordList extends React.Component {
         words: this.props.initialWords
     };
 
-    addNewWord = () => {
+    addNewWord = (e) => {
+        e.preventDefault();
         this.setState({
             words: [].concat(this.state.words, 'new word')
         });
