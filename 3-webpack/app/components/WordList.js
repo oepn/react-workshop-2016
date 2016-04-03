@@ -17,7 +17,7 @@ export default class WordList extends React.Component {
         });
     };
 
-    render() {
+    render = () => {
         return (
             <div className="container">
                 <ListHeader count={this.state.words.length}/>
