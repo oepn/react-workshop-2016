@@ -3,6 +3,8 @@ import {shallow} from 'enzyme';
 import {expect} from 'chai';
 import WordList from '../app/components/WordList';
 
+const noop = () => {};
+
 describe('<WordList/>', () => {
     it('displays a list of words', () => {
         const wrapper = shallow(
@@ -20,7 +22,7 @@ describe('<WordList/>', () => {
         expect(wrapper.render().find('li')).to.have.lengthOf(3);
 
         // Click "Add a new word" button
-        wrapper.find('button').simulate('click');
+        wrapper.find('button').simulate('click', {preventDefault: noop});
 
         expect(wrapper.render().find('li')).to.have.lengthOf(4);
     });
