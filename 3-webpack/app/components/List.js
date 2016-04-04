@@ -4,7 +4,7 @@ function List(props) {
     return (
         <ul>
             {props.items.map(function(item, i) {
-                return <li key={i}>{item}</li>
+                return <li key={i}>{item}</li>;
             })}
         </ul>
     );
