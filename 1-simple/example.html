@@ -47,12 +47,12 @@
 
         render: function() {
             return React.DOM.div({className: 'container'},
-                ListHeader({count: this.state.words.length}),
+                React.createElement(ListHeader, {count: this.state.words.length}),
                 React.DOM.button({className: 'btn btn-default', onClick: this.addNewWord},
                     'Add a new word'
                 ),
                 React.DOM.hr(),
-                List({items: this.state.words})
+                React.createElement(List, {items: this.state.words})
             );
         }
     });
